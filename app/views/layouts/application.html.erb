@@ -11,6 +11,27 @@
   </head>
 
   <body>
+    <% flash.each do |type, msg| %>
+      <div class="<%= type %>">
+        <%= msg %>
+      </div>
+    <% end %>
+
+    <h1>
+      Mein erstes Blog
+    </h1>
+
+    <nav>
+      <ul>
+        <li>
+          <%= link_to "Alle Post", posts_path %>
+        </li>
+        <li>
+          <%= link_to "Neuer Post", new_post_path %>
+        </li>
+      </ul>
+    </nav>
+
     <%= yield %>
   </body>
 </html>
