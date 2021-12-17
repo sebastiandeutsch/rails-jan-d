@@ -5,3 +5,27 @@
 <p>
   <%= @post.text %>
 </p>
+
+<h3>
+  Alle Kommentare
+</h3>
+
+<% @post.comments.each do |comment| %>
+  <li>
+    <%= comment.text %>
+  </li>
+<% end %>
+
+<h3>
+  Kommentar hinzufügen
+</h3>
+
+<%= form_for [@post, @comment] do |f| %>
+  <div>
+    <%= f.label :text %>
+    <%= f.text_area :text %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
